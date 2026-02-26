@@ -1,1 +1,8 @@
+!! -xeu -> extra if possible explain the error| Go to the end of the log file | unit name here "elasticsearch" & kibana !!
 
+journalctl -xeu elasticsearch    
+journalctl -xeu kibana
+
+vi/nano/cat /var/log/elasticsearch/elasticsearch.log
+vi/nano/cat /var/log/elasticsearch/elasticsearch/YOUR-NODE-NAME.log
+vi/nano/cat /var/log/kibana/kibana.log
