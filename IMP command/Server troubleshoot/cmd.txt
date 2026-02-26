@@ -1,1 +1,7 @@
+------| -t -> tcp, -u -> udp, -l -> listen, -p -> port, -n -> noDNS |------
+ss -tulpn | grep 9200      # to see kibana is running      
+ss -tulpn | grep 5601      # to see elastic is running 
 
+
+------| -u -> user, -k -> insecure, --cacert -> for ssl CA certificate |------
+curl -u elastic:YOUR_PASSWORD -k https://localhost:9200 --cacert ca.crt
