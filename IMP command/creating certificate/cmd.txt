@@ -1,1 +1,19 @@
+--For PEM format [I have used this format because it give more insight for certificate work]--
 
+--For CA--
+./elasticsearch-certutil ca --pem --out /etc/elasticsearch/certs/ca.zip
+unzip ca.zip
+chown elasticsearch:elasticsearch certs/*
+chmod +r OR 600 certs/*
+
+--For generaing http--
+./elasticsearch-certutil cert --ca-cert /etc/elasticsearch/certs/ca/ca.crt --ca-key /etc/elasticsearch/certs/ca/ca.key --days 365 --dns localhost,elk --ip 127.0.0.1,YOUR IP --name elastic --out /etc/elasticsearch/certs/elastic.zip --pem
+unzip elastic.zip
+chown elasticsearch:elasticsearch certs/elastic/*
+chmod +r OR 600 certs/elastic/*
+
+--For generaing transport--
+./elasticsearch-certutil cert --ca-cert /etc/elasticsearch/certs/ca/ca.crt --ca-key /etc/elasticsearch/certs/ca/ca.key --days 365 --dns localhost,elk --ip 127.0.0.1,YOUR IP --name elastic --out /etc/elasticsearch/certs/transport.zip --pem
+unzip transport.zip
+chown elasticsearch:elasticsearch certs/transport/*
+chmod +r OR 600 certs/transport/*
