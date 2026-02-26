@@ -1,1 +1,7 @@
-
+elasticsearch-certutil ca                                                          # create CA
+elasticsearch-certutil cert                                                        # create node certificate
+elasticsearch-certutil http                                                        # create HTTP certs
+elasticsearch-reset-password -u elastic                                            # reset the password of "-u" user elastic(default user) !!use with -i to interactive mode!!
+elasticsearch-reset-password -u kibana_system                                      # reset the password of "-u" user kibana_system(default user) !!use with -i to interactive mode!!
+elasticsearch-create-enrollment-token -s your's node                               # allow this new node to join cluster securely
+elasticsearch-keystore add xpack.security.transport.ssl.keystore.secure_password   # add password securely so we don't need to hard paste in yml files
